@@ -36,12 +36,17 @@ def compute_letters_frequency(input_string):
 
 def plot_letters_frequency_analysis(input_string):
     freq_list = compute_letters_frequency(input_string).values()
-    print(freq_list)
+    # print(freq_list)
     alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    fig, ax = plt.subplots()
-    ax.bar(x = alphabet, height = freq_list)
+    plt.figure(figsize=(10,3))
+    plt.bar(alphabet, freq_list)
+    plt.tick_params(axis='y', which='both', left=False, right=False, labelleft=False)
+    for spine in plt.gca().spines.values():
+        spine.set_visible(False)
+    
     plt.ylabel('Frequency')
-    plt.xlabel('Alphabet')
+    # plt.xlabel('Alphabet')
+    plt.show()
 
 
 def decrypt_vigenere(sk, ct=CIPHER, spaces_and_punctuation = True):
