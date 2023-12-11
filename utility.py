@@ -86,6 +86,8 @@ def extract_characters(input_string, x, n):
     Returns:
         str: the extracted characters
     """
+    if x == n:
+    	x = 0
     result = ""
     for i in range(len(input_string)):
         if (i + 1) % n == x:
